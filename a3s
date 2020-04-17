@@ -1,0 +1,34 @@
+#! /bin/bash
+
+CMD=${1?Error: no command given}
+SRV=${2}
+
+servers=(
+	main
+	hc
+	train
+	custom
+	hc2
+)
+
+if [ ${SRV:-all} == all ]
+then
+	for server in ${servers[@]}; do
+		/bin/bash /home/a3/$server $CMD
+	done
+elif [ $SRV == main ] || [ $SRV == m ]
+then
+	/bin/bash /home/a3/main $CMD
+	/bin/bash /home/a3/hc $CMD
+elif [ $SRV == train ] || [ $SRV == t ]
+then
+	/bin/bash /home/a3/train $CMD
+elif [ $SRV == custom ] || [ $SRV == c ]
+then
+	/bin/bash /home/a3/custom $CMD
+	/bin/bash /home/a3/hc2 $CMD
+else
+	echo error
+fi
+
+exit
