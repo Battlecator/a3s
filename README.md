@@ -1,2 +1,2 @@
 # a3s
-Simple bash script to initialize command to multiple server instances that are managed by linuxgsm.
+Simple bash script to initialize commands to multiple ArmA 3 server instances managed by linuxgsm.
